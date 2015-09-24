@@ -29,6 +29,9 @@ source 'https://rubygems.org'
  gem 'bootstrap-sass'
  #Bootstrap themese. See http://bootswatch.com/ for details
  gem 'bootswatch-rails'
+ gem 'figaro', '1.0'
+ #faker is used to generate random data to seed the database
+ gem 'faker'
 
 
 # # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
