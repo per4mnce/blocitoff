@@ -27,6 +27,8 @@ source 'https://rubygems.org'
  # Use Devise for authentication
  gem 'devise'
  gem 'bootstrap-sass'
+ #Bootstrap themese. See http://bootswatch.com/ for details
+ gem 'bootswatch-rails'
 
 
 # # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
