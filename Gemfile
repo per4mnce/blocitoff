@@ -24,6 +24,14 @@ source 'https://rubygems.org'
  gem 'jquery-rails'
  # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
  gem 'turbolinks'
+ # Use Devise for authentication
+ gem 'devise'
+ gem 'bootstrap-sass'
+ #Bootstrap themese. See http://bootswatch.com/ for details
+ gem 'bootswatch-rails'
+ gem 'figaro', '1.0'
+ #faker is used to generate random data to seed the database
+ gem 'faker'
 
 
 # # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
