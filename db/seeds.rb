@@ -1,31 +1,44 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
  
- #User Schema
-    # t.string   "email",                  default: "", null: false
-    # t.string   "encrypted_password",     default: "", null: false
-    # t.string   "reset_password_token"
-    # t.datetime "reset_password_sent_at"
-    # t.datetime "remember_created_at"
-    # t.integer  "sign_in_count",          default: 0,  null: false
-    # t.datetime "current_sign_in_at"
-    # t.datetime "last_sign_in_at"
-    # t.string   "current_sign_in_ip"
-    # t.string   "last_sign_in_ip"
-    # t.datetime "created_at",                          null: false
-    # t.datetime "updated_at",        
- 
- # To use
+ # To use this file:
  # rake db:reset
  
 50.times do
   User.create!(
-    email:  Faker::Internet.email,
-    password: Faker::Internet.password(10, 20),
+    name:     Faker::Name.name,
+    email:    Faker::Internet.email,
+    password: Faker::Internet.password(8, 15)
   )
 end
+users = User.all
+
+#Create items
+100.times do
+  Item.create!(
+    user:   users.sample,
+    name:   Faker::Lorem.characters(10),
+    done:   false
+  )
+end
+items = Item.all  
+
+#Generate data for Henry
+User.first.update_attributes!(
+  name:     'Henry Schaumburger',
+  email:    'per4mnce@gmail.com',
+  password: 'password'
+)
+
+#Generate todos for henry
+5.times do
+  Item.create!(
+    user:   User.first,
+    name:   Faker::Lorem.characters(10),
+    done:   false
+  )
+end
+
+puts "Seed finished"
+puts "#{User.count} users created!"
+puts "#{Item.count} todos created!"

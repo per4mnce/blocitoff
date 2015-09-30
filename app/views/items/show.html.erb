@@ -1,0 +1,9 @@
+<h1>Show Items for </h1>
+<div>
+  <p><strong>Todo Name:  </strong> <%= @item.name %></p>
+  <p></p><strong>Completed:  </strong><%= @item.done %></p>
+</div>
+
+<%= link_to "Edit Todo", edit_item_path, class: 'btn btn-success' %>
+<%= link_to "Delete Todo", @item, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this todo?' } %>
+

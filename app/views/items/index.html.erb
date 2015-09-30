@@ -1,0 +1,22 @@
+<h3><%= @items.count %> Todos for <%= current_user.name %><h3></h3>
+
+ <table class="table table-striped">
+   <% @items.each do |todo| %>
+       <tr>
+         <td>
+           <%= link_to todo.name, todo %>
+         </td>
+         <td>
+           time remaining
+         </td>
+         <td class="action">
+           <%= todo.done ? link_to("Undo", "#", class: 'btn btn-danger') : link_to("Done", "#", class: 'btn btn-success') %>
+         </td>
+       </tr>
+   <% end %>
+ </table>
+
+     
+ 
+     
+       <%= link_to "New todo ", new_item_path, class: 'btn btn-success' %>
