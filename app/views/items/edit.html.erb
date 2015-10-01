@@ -1,0 +1,22 @@
+<h1>Edit ToDo</h1>
+ <div class="row">
+   <div class="col-md-4">
+     <p>Guidelines for ToDo:</p>
+     <ul>
+       <li>Make is short.</li>
+       <li>Use action verbs.</li>
+     </ul>
+   </div>
+   <div class="col-md-8">
+     <%= form_for @item do |f| %>
+       <div class="form-group">
+         <%= f.label :name %>
+         <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: "Enter todo name" %>
+         <%= f.label "Description" %>
+         <%= f.text_area :desc,                  class: 'form-control', placeholder: "Enter a description" %>
+         <p>**bold** _italic_ `code` >quote * - bullet list"</p>
+       </div>
+     <%= f.submit "Save", class: 'btn btn-success' %>
+     <% end %>
+   </div>
+ </div>

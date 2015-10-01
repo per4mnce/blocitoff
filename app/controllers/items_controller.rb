@@ -21,18 +21,35 @@ class ItemsController < ApplicationController
     end
   end
   
- 
   def edit
+     @item = Item.find(params[:id])
   end
   
   def update
+     @item = Item.find(params[:id])
+     if @item.save
+       flash[:notice] = "Todo was updated."
+       redirect_to @item
+     else
+       flash[:error] = "Error saving todo. Please try again."
+       render :edit
+     end
   end
   
   def new
     @item = Item.new
   end
 
-  def delete
+  def destroy
+     @item = Item.find(params[:id])
+ 
+     if @item.destroy
+       flash[:notice] = "\"#{@item.name}\" was deleted successfully."
+       redirect_to action: :index
+     else
+       flash[:error] = "There was an error deleting the todo."
+       render :show
+     end
   end
   
   private
