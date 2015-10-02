@@ -18,6 +18,8 @@ class ItemsController < ApplicationController
       flash[:notice] = "saved"
       redirect_to items_path
     else
+      flash[:error] = @item.errors.full_messages.to_sentence
+      # flash[:error] = "My custom message"
       render :new
     end
   end
