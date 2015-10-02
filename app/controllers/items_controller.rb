@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
        flash[:notice] = "Todo was updated."
       redirect_to items_path 
      else
-       flash[:error] = "Error saving todo. Please try again."
+       flash[:error] = @item.errors.full_messages.to_sentence
        render :edit
      end
   end
