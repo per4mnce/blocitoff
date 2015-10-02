@@ -1,0 +1,10 @@
+<%= form_for @item do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: "Enter todo name" %>
+    <%= f.label "Description" %>
+    <%= f.text_area :desc,                  class: 'form-control', placeholder: "Enter a description" %>
+    <p>**bold** _italic_ `code` >quote * - bullet list"</p>
+  </div>
+  <%= f.submit "Save", class: 'btn btn-success' %>
+<% end %>

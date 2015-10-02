@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   end
  
   def show
+    
   end
   
   def create
@@ -22,14 +23,15 @@ class ItemsController < ApplicationController
   end
   
   def edit
-     @item = Item.find(params[:id])
+    
   end
   
   def update
-     @item = Item.find(params[:id])
+    # @item = Item.find(params[:id]) - not necessary because of before_action to set item
+     @item.assign_attributes(item_params)
      if @item.save
        flash[:notice] = "Todo was updated."
-       redirect_to @item
+      redirect_to items_path 
      else
        flash[:error] = "Error saving todo. Please try again."
        render :edit
@@ -55,11 +57,15 @@ class ItemsController < ApplicationController
   private
   
   def set_item
-    @item = Item.find(params[:id])
+    begin
+      @item = current_user.items.find(params[:id]) 
+    rescue 
+      @item = nil
+    end
   end
   
   def item_params
-    params.require(:item).permit(:name, :done)
+    params.require(:item).permit(:name, :done, :desc)
   end
   
 end

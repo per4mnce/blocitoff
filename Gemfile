@@ -36,6 +36,7 @@ source 'https://rubygems.org'
  gem 'whenever'
  #Add Markdown
  gem 'redcarpet'
+ gem 'pry-rails', :group => :development
 
 
 # # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
