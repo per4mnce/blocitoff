@@ -32,6 +32,11 @@ source 'https://rubygems.org'
  gem 'figaro', '1.0'
  #faker is used to generate random data to seed the database
  gem 'faker'
+ #Used to automate cron jobs
+ gem 'whenever'
+ #Add Markdown
+ gem 'redcarpet'
+ gem 'pry-rails', :group => :development
 
 
 # # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

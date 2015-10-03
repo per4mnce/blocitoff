@@ -33,9 +33,10 @@ User.first.update_attributes!(
 #Generate todos for henry
 5.times do
   Item.create!(
-    user:   User.first,
-    name:   Faker::Lorem.characters(10),
-    done:   false
+    user:       User.first,
+    name:       Faker::Lorem.characters(10),
+    done:       false,
+    created_at: Faker::Time.between(100.days.ago, Time.now, :all)
   )
 end
 
