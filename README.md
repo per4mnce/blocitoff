@@ -1,5 +1,5 @@
 # Blocitoff
-Utility Application With Rake Automation.
+A self-destructing to-do list utility application With Rake Automation.
 
 ## Features:
 User sign-up, user sign-in and out, User profile, Create To-Do items, Seeding data, To-Do completion, Displaying time remaining, Using Rake to automatically expire items.
